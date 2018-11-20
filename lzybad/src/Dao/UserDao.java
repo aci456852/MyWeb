@@ -152,7 +152,7 @@ public class UserDao
 		return user;
 	}
 	 public void deleteUser(int uid)
-	 {//×¢²á
+	 {//É¾³ý
 		Connection conn=DBUtils.getConnection();
 		try {
 			PreparedStatement statement=conn.prepareStatement("delete from User where uid=?");

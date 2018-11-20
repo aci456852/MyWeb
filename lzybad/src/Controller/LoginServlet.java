@@ -44,8 +44,7 @@ public class LoginServlet extends HttpServlet {
 		}
 		if(uid!=0)
 		{
-			String uidd=String.valueOf(uid);
-			request.setAttribute("uid", uidd);
+			request.setAttribute("uid", String.valueOf(uid));
 			request.setAttribute("users", users);
 		}
 		if(uid==0)

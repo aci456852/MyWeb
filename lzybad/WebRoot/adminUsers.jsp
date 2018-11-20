@@ -39,11 +39,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="collapse navbar-collapse navbar-right " id="bs-example-navbar-collapse-1">
 					<nav>
 							<ul class="nav navbar-nav link-effect-14" id="link-effect-14">
-								<li><a href="adminUsers.jsp"><span style="font-size: 25px;">用户管理</span></a></li>
-								<li><a href="adminQuestion.jsp"><span style="font-size: 25px;">提问管理</span></a></li>
-								<li><a href="adminResponse.jsp"><span style="font-size: 25px;">回答管理</span></a></li>
-								<li><a href="adminResponse.jsp"><span style="font-size: 25px;">留言管理</span></a></li>
-								<li><a href="login.html"><span style="font-size: 25px;">注销</span></a></li>
+								<li><a href="list.doAdminUsers"><span style="font-size: 25px;">用户管理</span></a></li>
+								<li><a href="listforAdmin.doQuestion"><span style="font-size: 25px;">提问管理</span></a></li>
+								<li><a href="listforAdmin.doResponse"><span style="font-size: 25px;">回答管理</span></a></li>
+								<li><a href="listforAdmin.doMessages"><span style="font-size: 25px;">留言管理</span></a></li>
+								<li><a href="login.jsp"><span style="font-size: 25px;">注销</span></a></li>
 					        </ul>						
 					</nav>	
 				</div>				
@@ -56,11 +56,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<img src="images/tx.png" />
 				<div style="margin-top: 10px;margin-bottom: 20px;"><font style="color:#C9E2B3;">admin</font></div>
 				<div style="margin-top: 10px;margin-bottom: 20px;"><font style="color:#C9E2B3;">管理员</font></div>
-				<br /><li ><a href="adminUsers.jsp"><span><font color="orange" size="6" >用户管理</font></span></a></li>
-				<br /><li><a href="adminQuestion.jsp"><span><font font color="honeydew" size="6" >提问管理</font></span></a></li>
-				<br /><li ><a href="adminResponse.jsp"><span><font color="honeydew" size="6" >回答管理</font></span></a></li>
-				<br /><li ><a href="adminContactUs.jsp"><span><font color="honeydew" size="6" >留言管理</font></span></a></li>
-                 <br /><li><a href="login.jsp"><span><font color="honeydew" size="6" >注销</font></span></a></li>						
+				<br /><li><a href="list.doAdminUsers"><span><font color="orange" size="6" >用户管理</font></span></a></li>
+				<br /><li><a href="listforAdmin.doQuestion"><span><font color="honeydew" size="6" >提问管理</font></span></a></li>
+				<br /><li><a href="listforAdmin.doResponse"><span><font color="honeydew" size="6" >回答管理</font></span></a></li>
+				<br /><li><a href="listforAdmin.doMessages"><span><font color="honeydew" size="6" >留言管理</font></span></a></li>
+                <br /><li><a href="login.jsp"><span><font color="honeydew" size="6" >注销</font></span></a></li>						
 			</ul>							
 </nav>	
 </div>
@@ -94,7 +94,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<td><%=u.getUsername() %></td>
 							<td><%=u.getPassword() %></td>
 							<td><%=u.getSecondname() %></td>	
-							<td><a href="AdminUsersDelete?uid=<%=u.getUid() %>" style="color: #D58512;">删除</a></td>	
+							<td><a href="delete.doAdminUsers?uid=<%=u.getUid() %>" style="color: #D58512;">删除</a></td>	
 						</tr>
 						<%} %>
 					</tbody>

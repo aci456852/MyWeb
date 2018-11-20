@@ -44,21 +44,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<% 
 						UserDao udao=new UserDao();
 						List<User> users=udao.getAll();
-						int uid=Integer.parseInt(request.getParameter("uid"));
+						int uid=Integer.parseInt(request.getAttribute("uid").toString());
 						User user=(User)users.get(uid-1);
 					
 				%>
 				<div class="collapse navbar-collapse navbar-right " id="bs-example-navbar-collapse-1">
 					<nav style="margin-left: 200px; width: 3000px;padding-left: 100px;padding-right:100px ;">
 							<ul class="nav navbar-nav link-effect-14" id="link-effect-14">							
-								<li ><a href="Login"><span style="font-size: 25px;">主页</span></a></li>
-								 <li><a href="PersonalModification?uid=<%= user.getUid()%>" ><span style="font-size: 25px;">个人信息</span></a></li>
-								<li><a href="question.jsp?uid=<%= user.getUid()%>"><span style="font-size: 25px;">我的提问</span></a></li>
-								<li><a href="response.jsp?uid=<%= user.getUid()%>"><span style="font-size: 25px;">我的回答</span></a></li>
-								<li><a href="collection.jsp?uid=<%= user.getUid()%>" ><span style="font-size: 25px;">我的收藏</span></a></li>                      
-                                <li><a href="contactus?uid=<%= user.getUid()%>" ><span style="font-size: 25px;">联系我们</span></a></li>
-								<li><a href="login.jsp"><span style="font-size: 25px;">注销</span></a></li>
-							</ul>			
+							<li><a href="Login"><span style="font-size: 25px;">主页</span></a></li>
+							<li><a href="PersonalModification"><span style="font-size: 25px;">个人信息</span></a></li>
+							<li><a href="listforUser.doQuestion"><span style="font-size: 25px;">我的提问</span></a></li>
+							<li><a href="listforUser.doResponse"><span style="font-size: 25px;">我的回答</span></a></li>
+							<li><a href="list.doCollection" ><span style="font-size: 25px;">我的收藏</span></a></li>                      
+                            <li><a href="listforUser.doMessages" ><span style="font-size: 25px;">联系我们</span></a></li>
+							<li><a href="login.jsp"><span style="font-size: 25px;">注销</span></a></li>
+						</ul>			
 					</nav>	
 				</div>
 				
@@ -80,22 +80,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<li  ><a href="Login"><span><font color="honeydew" size="6">主页</font></span></a></li>
 					<br />
 					<li>
-						<a href="PersonalModification?uid=<%= user.getUid()%>">
-						<span><font color="orange" size="6">个人信息</font></span>
-						</a>
-					</li>
-					<br />
-					<li><a href="question.jsp?uid=<%= user.getUid()%>"><span><font color="honeydew" size="6">我的提问</font></span></a></li>
-					<br />
-					<li ><a href="response.jsp?uid=<%= user.getUid()%>"><span><font color="honeydew" size="6">我的回答</font></span></a></li>
-					<br />
-					<li ><a href="collection.jsp?uid=<%= user.getUid()%>"><span><font color="honeydew" size="6">我的收藏</font></span></a></li>
-					<br />
-					<li><a href="contactus.jsp?uid=<%= user.getUid()%>"><span><font color="honeydew" size="6">联系我们</font></span></a></li>
-					<br />
-					<li><a href="login.jsp"><span><font color="honeydew" size="6">注销</font></span></a></li>
-					<br />
-			</ul>
+					<a href="PersonalModification">
+					<span><font color="orange" size="6">个人信息</font></span>
+					</a>
+					</li><br />
+					<li><a href="listforUser.doQuestion"><span><font color="honeydew" size="6">我的提问</font></span></a></li><br />
+					<li><a href="listforUser.doResponse"><span><font color="honeydew" size="6">我的回答</font></span></a></li><br />
+					<li><a href="list.doCollection"><span><font color="honeydew" size="6">我的收藏</font></span></a></li><br />
+					<li><a href="listforUser.doMessages"><span><font color="honeydew" size="6">联系我们</font></span></a></li><br />
+					<li><a href="login.jsp"><span><font color="honeydew" size="6">注销</font></span></a></li><br />
+			</ul>			
 		</nav>	
 	</div>
 	
@@ -107,7 +101,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<h2 class="w3ls_head" >个人信息</h2> 
 			<div class="contact-agileinfo">
 				<div class="col-md-7 contact-right"> 
-					<form action="PersonalModification?uid=<%= user.getUid()%>" method="post">  						
+					<form action="PersonalModification" method="post">  						
 						<input type="text" name="secondname" placeholder="昵称" required="">						
 						<input type="text" class="email" name="Email" placeholder="邮箱" required="">
 						<input type="text" name="age" placeholder="年龄" required="">

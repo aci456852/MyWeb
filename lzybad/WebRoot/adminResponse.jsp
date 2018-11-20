@@ -49,12 +49,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="collapse navbar-collapse navbar-right " id="bs-example-navbar-collapse-1">
 					<nav>
 							<ul class="nav navbar-nav link-effect-14" id="link-effect-14">
-								<li><a href="adminUsers.jsp"><span style="font-size: 25px;">用户管理</span></a></li>
-								<li><a href="adminQuestion.jsp"><span style="font-size: 25px;">提问管理</span></a></li>
-								<li><a href="adminResponse.jsp"><span style="font-size: 25px;">回答管理</span></a></li>
-								<li><a href="adminResponse.jsp"><span style="font-size: 25px;">留言管理</span></a></li>								
+								<li><a href="list.doAdminUsers"><span style="font-size: 25px;">用户管理</span></a></li>
+								<li><a href="listforAdmin.doQuestion"><span style="font-size: 25px;">提问管理</span></a></li>
+								<li><a href="listforAdmin.doResponse"><span style="font-size: 25px;">回答管理</span></a></li>
+								<li><a href="listforAdmin.doMessages"><span style="font-size: 25px;">留言管理</span></a></li>
 								<li><a href="login.jsp"><span style="font-size: 25px;">注销</span></a></li>
-							</ul>						
+					        </ul>						
 					</nav>	
 				</div>
 				
@@ -68,12 +68,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<img src="images/tx.png" />
 				<div style="margin-top: 10px;margin-bottom: 20px;"><font style="color:#C9E2B3;">admin</font></div>
 				<div style="margin-top: 10px;margin-bottom: 20px;"><font style="color:#C9E2B3;">管理员</font></div>								
-				<br /><li ><a href="adminUsers.jsp"><span><font color="honeydew" size="6" >用户管理</font></span></a></li>
-				<br /><li><a href="adminQuestion.jsp"><span><font font color="honeydew" size="6" >提问管理</font></span></a></li>
-				<br /><li ><a href="adminResponse.jsp"><span><font color="orange" size="6" >回答管理</font></span></a></li>
-				<br /><li ><a href="adminContactUs.jsp"><span><font color="honeydew" size="6" >留言管理</font></span></a></li>
-				<br /><li><a href="login.jsp"><span><font color="honeydew" size="6" >注销</font></span></a></li>						
-			</ul>							
+				<br /><li><a href="list.doAdminUsers"><span><font color="honeydew" size="6" >用户管理</font></span></a></li>
+				<br /><li><a href="listforAdmin.doQuestion"><span><font color="honeydew" size="6" >提问管理</font></span></a></li>
+				<br /><li><a href="listforAdmin.doResponse"><span><font color="orange" size="6" >回答管理</font></span></a></li>
+				<br /><li><a href="listforAdmin.doMessages"><span><font color="honeydew" size="6" >留言管理</font></span></a></li>
+                <br /><li><a href="login.jsp"><span><font color="honeydew" size="6" >注销</font></span></a></li>						
+			</ul>								
       </nav>	
 	</div>
 <div class="welcome">
@@ -115,7 +115,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<span style="font-size: 15px; color:#656B6D;"><span></span></span>
 					</div>	
 					<%} %>			
-					<form action="AdminResponseDelete?rid=<%=r.getRid() %>" method="post">  
+					<form action="deleteforAdmin.doResponse?rid=<%=r.getRid() %>" method="post">  
 						<!--提交按钮-->
 						<div class="contact-agileinfo" style="margin-left:600px;margin-top: -50px;">
 					     <div class="col-md-3 contact-right"> 						

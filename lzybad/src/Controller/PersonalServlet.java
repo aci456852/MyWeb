@@ -25,6 +25,8 @@ public class PersonalServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		int uid= Integer.parseInt(request.getSession().getAttribute("uid").toString());
+		request.setAttribute("uid", String.valueOf(uid));
 		request.getRequestDispatcher("/personal.jsp").forward(request, response);
 	}
 
@@ -37,7 +39,7 @@ public class PersonalServlet extends HttpServlet {
 		String sex=request.getParameter("sex");
 		String hobby=request.getParameter("hobby");
 		String motto=request.getParameter("motto");
-		int uid=Integer.parseInt(request.getParameter("uid"));  
+		int uid=Integer.parseInt(request.getSession().getAttribute("uid").toString()); 
 		UserDao userdao=new UserDao();
 		userdao.personal(secondname,email,age,sex,hobby,motto,uid);
 		request.setAttribute("sucess", "修改个人信息成功！");

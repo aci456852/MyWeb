@@ -37,38 +37,14 @@
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
-    <servlet-name>QuestionAddServlet</servlet-name>
-    <servlet-class>Controller.QuestionAddServlet</servlet-class>
+    <servlet-name>CollectionServlet</servlet-name>
+    <servlet-class>Controller.CollectionServlet</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
-    <servlet-name>QuestionDeleteServlet</servlet-name>
-    <servlet-class>Controller.QuestionDeleteServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <description>This is the description of my J2EE component</description>
-    <display-name>This is the display name of my J2EE component</display-name>
-    <servlet-name>ResponseAddServlet</servlet-name>
-    <servlet-class>Controller.ResponseAddServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <description>This is the description of my J2EE component</description>
-    <display-name>This is the display name of my J2EE component</display-name>
-    <servlet-name>ResponseDeleteServlet</servlet-name>
-    <servlet-class>Controller.ResponseDeleteServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <description>This is the description of my J2EE component</description>
-    <display-name>This is the display name of my J2EE component</display-name>
-    <servlet-name>CollectionAddServlet</servlet-name>
-    <servlet-class>Controller.CollectionAddServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <description>This is the description of my J2EE component</description>
-    <display-name>This is the display name of my J2EE component</display-name>
-    <servlet-name>CollectionDeleteServlet</servlet-name>
-    <servlet-class>Controller.CollectionDeleteServlet</servlet-class>
+    <servlet-name>MessagesServlet</servlet-name>
+    <servlet-class>Controller.MessagesServlet</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
@@ -85,26 +61,9 @@
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
-    <servlet-name>MessagesAddServlet</servlet-name>
-    <servlet-class>Controller.MessagesAddServlet</servlet-class>
+    <servlet-name>AdminUsersServlet</servlet-name>
+    <servlet-class>Controller.AdminUsersServlet</servlet-class>
   </servlet>
-  <servlet>
-    <description>This is the description of my J2EE component</description>
-    <display-name>This is the display name of my J2EE component</display-name>
-    <servlet-name>MessagesDeleteServlet</servlet-name>
-    <servlet-class>Controller.MessagesDeleteServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <description>This is the description of my J2EE component</description>
-    <display-name>This is the display name of my J2EE component</display-name>
-    <servlet-name>AdminUsersDeleteServlet</servlet-name>
-    <servlet-class>Controller.AdminUsersDeleteServlet</servlet-class>
-  </servlet>
-
-
-
-
-
 
 
   <servlet-mapping>
@@ -121,35 +80,19 @@
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>ResponseServlet</servlet-name>
-    <url-pattern>/Responses</url-pattern>
+    <url-pattern>*.doResponse</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>QuestionServlet</servlet-name>
-    <url-pattern>/Question</url-pattern>
+    <url-pattern>*.doQuestion</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>QuestionAddServlet</servlet-name>
-    <url-pattern>/QuestionAdd</url-pattern>
+    <servlet-name>CollectionServlet</servlet-name>
+    <url-pattern>*.doCollection</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>QuestionDeleteServlet</servlet-name>
-    <url-pattern>/QuestionDelete</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>ResponseAddServlet</servlet-name>
-    <url-pattern>/ResponseAdd</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>ResponseDeleteServlet</servlet-name>
-    <url-pattern>/ResponseDelete</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>CollectionAddServlet</servlet-name>
-    <url-pattern>/CollectionAdd</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>CollectionDeleteServlet</servlet-name>
-    <url-pattern>/CollectionDelete</url-pattern>
+    <servlet-name>MessagesServlet</servlet-name>
+    <url-pattern>*.doMessages</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>AdminResponseDeleteServlet</servlet-name>
@@ -160,18 +103,10 @@
     <url-pattern>/AdminQuestionDelete</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>MessagesAddServlet</servlet-name>
-    <url-pattern>/MessagesAdd</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>MessagesDeleteServlet</servlet-name>
-    <url-pattern>/MessagesDelete</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>AdminUsersDeleteServlet</servlet-name>
-    <url-pattern>/AdminUsersDelete</url-pattern>
+    <servlet-name>AdminUsersServlet</servlet-name>
+    <url-pattern>*.doAdminUsers</url-pattern>
   </servlet-mapping>
   <welcome-file-list>
-    <welcome-file>/login.jsp</welcome-file>
+    <welcome-file>/Login</welcome-file>
   </welcome-file-list>
 </web-app>

@@ -4,6 +4,7 @@ drop table User;
 drop table MyQuestion;
 drop table MyResponse;
 drop table MyCollection;
+drop table Messages;
 
 create table User(
 	uid int primary key auto_increment,

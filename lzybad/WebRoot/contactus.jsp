@@ -43,21 +43,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<% 
 					UserDao udao=new UserDao();
 					List<User> users=udao.getAll();
-					int uid=Integer.parseInt(request.getParameter("uid"));
+					int uid=Integer.parseInt(request.getAttribute("uid").toString());
 					User user=(User)users.get(uid-1);
 				%>
 				<div class="collapse navbar-collapse navbar-right " id="bs-example-navbar-collapse-1">
 					<nav style="margin-left: 200px; width: 3000px;padding-left: 100px;padding-right:100px ;">
-							<ul class="nav navbar-nav link-effect-14" id="link-effect-14">							
-								<li ><a href="Login"><span style="font-size: 25px;">主页</span></a></li>
-								 <li><a href="PersonalModification?uid=<%= user.getUid()%>" ><span style="font-size: 25px;">个人信息</span></a></li>
-								<li><a href="question.jsp?uid=<%= user.getUid()%>"><span style="font-size: 25px;">我的提问</span></a></li>
-								<li><a href="response.jsp?uid=<%= user.getUid()%>"><span style="font-size: 25px;">我的回答</span></a></li>
-								<li><a href="collection.jsp?uid=<%= user.getUid()%>" ><span style="font-size: 25px;">我的收藏</span></a></li>                      
-	                            <li><a href="contactus.jsp?uid=<%= user.getUid()%>" ><span style="font-size: 25px;">联系我们</span></a></li>
-								<li><a href="login.jsp"><span style="font-size: 25px;">注销</span></a></li>
-							</ul>			
-					</nav>	
+						<ul class="nav navbar-nav link-effect-14" id="link-effect-14">							
+							<li><a href="Login"><span style="font-size: 25px;">主页</span></a></li>
+							<li><a href="PersonalModification"><span style="font-size: 25px;">个人信息</span></a></li>
+							<li><a href="listforUser.doQuestion"><span style="font-size: 25px;">我的提问</span></a></li>
+							<li><a href="listforUser.doResponse"><span style="font-size: 25px;">我的回答</span></a></li>
+							<li><a href="list.doCollection" ><span style="font-size: 25px;">我的收藏</span></a></li>                      
+                            <li><a href="listforUser.doMessages" ><span style="font-size: 25px;">联系我们</span></a></li>
+							<li><a href="login.jsp"><span style="font-size: 25px;">注销</span></a></li>
+						</ul>			
+				</nav>	
 				</div>	
 				
 			</nav>
@@ -76,21 +76,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<li><a href="Login"><span><font color="honeydew" size="6">主页</font></span></a></li>
 				<br />
 				<li>
-					<a href="PersonalModification?uid=<%= user.getUid()%>">
+					<a href="PersonalModification">
 					<span><font color="honeydew" size="6">个人信息</font></span>
 					</a>
-				</li>
-				<br />
-				<li><a href="question.jsp?uid=<%= user.getUid()%>"><span><font color="honeydew" size="6">我的提问</font></span></a></li>
-				<br />
-				<li ><a href="response.jsp?uid=<%= user.getUid()%>"><span><font color="honeydew" size="6">我的回答</font></span></a></li>
-				<br />
-				<li ><a href="collection.jsp?uid=<%= user.getUid()%>"><span><font color="honeydew" size="6">我的收藏</font></span></a></li>
-				<br />
-				<li><a href="contactus.jsp?uid=<%= user.getUid()%>"><span><font color="orange" size="6">联系我们</font></span></a></li>
-				<br />
-				<li><a href="login.jsp"><span><font color="honeydew" size="6">注销</font></span></a></li>
-				<br />
+				</li><br />
+				<li><a href="listforUser.doQuestion"><span><font color="honeydew" size="6">我的提问</font></span></a></li><br />
+				<li><a href="listforUser.doResponse"><span><font color="honeydew" size="6">我的回答</font></span></a></li><br />
+				<li><a href="list.doCollection"><span><font color="honeydew" size="6">我的收藏</font></span></a></li><br />
+				<li><a href="listforUser.doMessages"><span><font color="orange" size="6">联系我们</font></span></a></li><br />
+				<li><a href="login.jsp"><span><font color="honeydew" size="6">注销</font></span></a></li><br />
 			</ul>		
 		</nav>	
 </div>
@@ -101,8 +95,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<!-- subscribe -->	
 		<div style="width:800px;padding-right: 0px;padding-left: 0px;margin-top:-100px;margin-left: 9em;margin-right: 0; margin-bottom: 2em;font-size: 20px;float: left;">
 			<div class="w3-agileits-subscribe-form">
-				<form action="MessagesAdd?uid=<%= user.getUid()%>" method="post">
-					<input type="text" name="mco" placeholder="留言内容" name="search" required="" style="border: 2px solid rgba(255, 185, 15, 0.5);font-size: 1.45em;padding: .25em .5em .3125em;color: rgba(255, 185, 15, 0.5);background: transparent;-webkit-transition: all .100s;transition: all .100s;">
+				<form action="add.doMessages" method="post">
+					<input type="text" name="mco" placeholder="留言内容" name="search" required="" style="border: 2px solid rgba(255, 185, 15, 0.5);font-size: 1.45em;padding: .25em .5em .3125em;color: rgba(255, 185, 15, 0.5);background: transparent;-webkit-transition: all .100s;transition: all .100s;">		
 					<button class="btn1"><font style="font-family:'黑体';font-size: 22px; ">留   言</font></button>
 				</form>
 			</div>		
@@ -185,37 +179,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="clearfix"> </div>
 								</div>
 							</div>
-						</article>
-						<article style="position: absolute; width: 100%; opacity: 0;"> 
-							<div class="banner-wrap">
-								<div class="testimonials-grid">
-									<div class="testimonials-grid-left">
-										<img src="images/old.jpg" alt=" " class="img-responsive" style="width: 200px;height: 200px;"/>
-									</div>
-									<div class="testimonials-grid-right">
-										<p style="font-size: 20px;">一个很老很老的老男人</p>
-										<p style="font-size: 20px;">“小时候我们词不达意，长大了我们言不由衷。”</p>
-										<h4>大肚皮张兴阳</h4>
-									</div>
-									<div class="clearfix"> </div>
-								</div>
-							</div>
-						</article>
-						<article style="position: absolute; width: 100%; opacity: 0;"> 
-							<div class="banner-wrap">
-								<div class="testimonials-grid">
-									<div class="testimonials-grid-left">
-										<img src="images/littleold.jpg" alt=" " class="img-responsive" style="width: 200px;height: 200px;"/>
-									</div>
-									<div class="testimonials-grid-right">
-										<p style="font-size: 20px;">一个有些老又有些坏坏的男人</p>
-										<p style="font-size: 20px;">“这个世界不缺完美的人，缺的是从内心发出的真诚，正义，无畏和同情。”</p>
-										<h4>新疆陈冠希</h4>
-									</div>
-									<div class="clearfix"> </div>
-								</div>
-							</div>
-						</article>
+						</article>						
 					</div>
 				</div>
 					<script src="js/jquery.wmuSlider.js"></script> 

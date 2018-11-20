@@ -82,12 +82,12 @@ background: none;
 				<div class="collapse navbar-collapse navbar-right " id="bs-example-navbar-collapse-1">
 					<nav>
 							<ul class="nav navbar-nav link-effect-14" id="link-effect-14">
-								<li><a href="adminUsers.jsp"><span style="font-size: 25px;">用户管理</span></a></li>
-								<li><a href="adminQuestion.jsp"><span style="font-size: 25px;">提问管理</span></a></li>
-								<li><a href="adminResponse.jsp"><span style="font-size: 25px;">回答管理</span></a></li>
-								<li><a href="adminResponse.jsp"><span style="font-size: 25px;">留言管理</span></a></li>								
+								<li><a href="list.doAdminUsers"><span style="font-size: 25px;">用户管理</span></a></li>
+								<li><a href="listforAdmin.doQuestion"><span style="font-size: 25px;">提问管理</span></a></li>
+								<li><a href="listforAdmin.doResponse"><span style="font-size: 25px;">回答管理</span></a></li>
+								<li><a href="listforAdmin.doMessages"><span style="font-size: 25px;">留言管理</span></a></li>
 								<li><a href="login.jsp"><span style="font-size: 25px;">注销</span></a></li>
-							</ul>						
+					        </ul>						
 					</nav>	
 				</div>
 				
@@ -101,12 +101,12 @@ background: none;
 				<img src="images/tx.png" />
 				<div style="margin-top: 10px;margin-bottom: 20px;"><font style="color:#C9E2B3;">admin</font></div>
 				<div style="margin-top: 10px;margin-bottom: 20px;"><font style="color:#C9E2B3;">管理员</font></div>								
-				<br /><li ><a href="adminUsers.jsp"><span><font color="honeydew" size="6" >用户管理</font></span></a></li>
-				<br /><li><a href="adminQuestion.jsp"><span><font font color="orange" size="6" >提问管理</font></span></a></li>
-				<br /><li ><a href="adminResponse.jsp"><span><font color="honeydew" size="6" >回答管理</font></span></a></li>
-				<br /><li ><a href="adminContactUs.jsp"><span><font color="honeydew" size="6" >留言管理</font></span></a></li>
-				<br /><li><a href="login.jsp"><span><font color="honeydew" size="6" >注销</font></span></a></li>						
-			</ul>							
+				<br /><li><a href="list.doAdminUsers"><span><font color="honeydew" size="6" >用户管理</font></span></a></li>
+				<br /><li><a href="listforAdmin.doQuestion"><span><font color="orange" size="6" >提问管理</font></span></a></li>
+				<br /><li><a href="listforAdmin.doResponse"><span><font color="honeydew" size="6" >回答管理</font></span></a></li>
+				<br /><li><a href="listforAdmin.doMessages"><span><font color="honeydew" size="6" >留言管理</font></span></a></li>
+                <br /><li><a href="login.jsp"><span><font color="honeydew" size="6" >注销</font></span></a></li>						
+			</ul>								
       </nav>	
 	</div>
 <%! int myuid;
@@ -134,7 +134,7 @@ background: none;
 						<p><%= question.getQco() %></p>  
 						<p>提问时间:<span><%= question.getQtime()%></span></p>
 						<div class="agileits_w3layouts_more">	
-							<form action="AdminQuestionDelete?qid=<%=question.getQid() %>" method="post">  
+							<form action="deleteforAdmin.doQuestion?qid=<%=question.getQid() %>" method="post">  
 								<!--提交按钮-->
 								<div class="contact-agileinfo" style="margin-left:90px;margin-top: 0px;">
 							     <div class="col-md-3 contact-right"> 						
@@ -165,7 +165,7 @@ background: none;
 	for(int i=0;i<questions.size();i++){
 		String ss="modal"+i;
 		QuestionDao qdao2=new QuestionDao();
-		MyQuestion q=qdao2.getOneOfMy(user.getUid(),myqid[i]);
+		MyQuestion q=qdao2.getOneOfAll(myqid[i]);
 %>
 <div class="modal video-modal fade" id="<%=ss%>" tabindex="-1" role="dialog" aria-labelledby="myModal">
 	<div class="modal-dialog" role="document">

@@ -69,6 +69,7 @@ background: none;
 </style>
 	
 <body>
+<% String base=request.getContextPath()+"/"; %>
 <!-- banner -->
 <div class="banner" style="position: fixed;width: 2000px;">
 	<div class="container">	
@@ -87,12 +88,12 @@ background: none;
 			<div class="collapse navbar-collapse navbar-right " id="bs-example-navbar-collapse-1">
 				<nav style="margin-left: 200px; width: 3000px;padding-left: 100px;padding-right:100px ;">
 						<ul class="nav navbar-nav link-effect-14" id="link-effect-14">							
-							<li ><a href="Login"><span style="font-size: 25px;">主页</span></a></li>
-							<li><a href="PersonalModification?uid=<%= user.getUid()%>" ><span style="font-size: 25px;">个人信息</span></a></li>
-							<li><a href="question.jsp?uid=<%= user.getUid()%>"><span style="font-size: 25px;">我的提问</span></a></li>
-							<li><a href="response.jsp?uid=<%= user.getUid()%>"><span style="font-size: 25px;">我的回答</span></a></li>
-							<li><a href="collection.jsp?uid=<%= user.getUid()%>" ><span style="font-size: 25px;">我的收藏</span></a></li>                      
-                            <li><a href="contactus.jsp?uid=<%= user.getUid()%>" ><span style="font-size: 25px;">联系我们</span></a></li>
+							<li><a href="Login"><span style="font-size: 25px;">主页</span></a></li>
+							<li><a href="PersonalModification"><span style="font-size: 25px;">个人信息</span></a></li>
+							<li><a href="listforUser.doQuestion"><span style="font-size: 25px;">我的提问</span></a></li>
+							<li><a href="listforUser.doResponse"><span style="font-size: 25px;">我的回答</span></a></li>
+							<li><a href="list.doCollection" ><span style="font-size: 25px;">我的收藏</span></a></li>                      
+                            <li><a href="listforUser.doMessages" ><span style="font-size: 25px;">联系我们</span></a></li>
 							<li><a href="login.jsp"><span style="font-size: 25px;">注销</span></a></li>
 						</ul>			
 				</nav>	
@@ -112,21 +113,15 @@ background: none;
 				<li><a href="Login"><span><font color="orange" size="6">主页</font></span></a></li>
 				<br />
 				<li>
-					<a href="PersonalModification?uid=<%= user.getUid()%>">
+					<a href="PersonalModification">
 					<span><font color="honeydew" size="6">个人信息</font></span>
 					</a>
-				</li>
-				<br />
-				<li><a href="question.jsp?uid=<%= user.getUid()%>"><span><font color="honeydew" size="6">我的提问</font></span></a></li>
-				<br />
-				<li ><a href="response.jsp?uid=<%= user.getUid()%>"><span><font color="honeydew" size="6">我的回答</font></span></a></li>
-				<br />
-				<li ><a href="collection.jsp?uid=<%= user.getUid()%>"><span><font color="honeydew" size="6">我的收藏</font></span></a></li>
-				<br />
-				<li><a href="contactus.jsp?uid=<%= user.getUid()%>"><span><font color="honeydew" size="6">联系我们</font></span></a></li>
-				<br />
-				<li><a href="login.jsp"><span><font color="honeydew" size="6">注销</font></span></a></li>
-				<br />
+				</li><br />
+				<li><a href="listforUser.doQuestion"><span><font color="honeydew" size="6">我的提问</font></span></a></li><br />
+				<li><a href="listforUser.doResponse"><span><font color="honeydew" size="6">我的回答</font></span></a></li><br />
+				<li><a href="list.doCollection"><span><font color="honeydew" size="6">我的收藏</font></span></a></li><br />
+				<li><a href="listforUser.doMessages"><span><font color="honeydew" size="6">联系我们</font></span></a></li><br />
+				<li><a href="login.jsp"><span><font color="honeydew" size="6">注销</font></span></a></li><br />
 			</ul>			
 		</nav>	
 </div>
@@ -173,12 +168,12 @@ background: none;
 				<h2 class="w3ls_head"><%= question.getQtitle() %> </h2>
 				<p><%= question.getQco() %></p> 
 				<div class="agileits_w3layouts_more">		
-					<form action="ResponseAdd?uid=<%= uid %>&qid=<%= question.getQid() %>" method="post">  
-						
+					<form action="add.doResponse?qid=<%= question.getQid()%>" method="post">  					
 						<input type="text" placeholder="   请输入回复内容..." name="rco" style="width:700px;height: 50px;border: 2px solid rgba(255, 185, 15, 0.5);font-size: 1.45em;padding:0.4em 0.4em;color:rgba(0,0,0,0.5);border-radius: .25em;background: transparent;">		
 						<!--提交按钮-->
 						<div class="contact-agileinfo" style="margin-left:80px;margin-top: 15px;">
-					     <div class="col-md-3 contact-right"> 						
+					     <div class="col-md-3 contact-right"> 						 
+					     	<!-- <%session.setAttribute("qid",question.getQid());%>	--> 			
 							<input type="submit" value="回    复" > 									
 					    </div>		
 				        </div>
@@ -241,8 +236,11 @@ background: none;
 						</div>
 					</div>
 					<p><%= res.getRco() %></p>
-					<form action="CollectionAdd?uid=<%=user.getUid() %>&qid=<%=res.getQid() %>&rid=<%=res.getRid() %>" method="post">
-					 <div class="icon-box" style="margin-left:520px;background:none;"><a class="agile-icon" method="post" href="CollectionAdd?uid=<%=user.getUid() %>&qid=<%=res.getQid() %>&rid=<%=res.getRid() %>" ><i class="fa fa-heart"></i></a></div>
+					<form  method="post">
+					 <div class="icon-box" style="margin-left:520px;background:none;">
+						 <a class="agile-icon" method="post" href="add.doCollection?qid=<%=res.getQid() %>&rid=<%=res.getRid() %>" >
+						 <i class="fa fa-heart"></i></a>
+					 </div>
 					 </form>
 					<!--评论回复结束-->
 					</div>

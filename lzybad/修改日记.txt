@@ -1,0 +1,20 @@
+DAY1
+1.路径在web.xml
+2.get是从服务器上获取数据，post是向服务器传送数据
+2.1.通过表单提交到的servlet,看form的method是get还是post   
+2.2.通过链接访问的servlet,doGet   
+3.jsp页面传值，request.getParameter("uid")改为request.getAttribute("uid").toString();
+4.一个servlet处理多个事件：https://blog.csdn.net/codeMas/article/details/80696777
+5.jsp传值到servlet的时候可以用session：<%session.setAttribute("qid",qid);%>
+int qid=Integer.parseInt(request.getSession().getAttribute("qid").toString());
+
+
+访问主页面时直接跳到Login
+删除问题时应跳个提示框
+设置防止用户重复提交 https://www.cnblogs.com/xdp-gacl/p/3859416.html
+
+*删除提问，增加收藏无法传参，循环会覆盖
+
+DAY2
+1.有循环的地方还是用老方法传参
+2.收藏改为收藏问题题目和回答内容（原为提问和描述）
