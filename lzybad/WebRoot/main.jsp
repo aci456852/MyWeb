@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
 <title>我的主页</title>
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 
 <!-- custom-theme -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -130,19 +131,19 @@ background: none;
 	int o=0;
 	int flag=0;
 %>
- 	<div class="welcome">	
-		 <div class="container">
-			<div class="ab-w3l-spa" style="margin-top: 200px;">
+ <div class="welcome">	
+	<div class="container">
+		<div class="ab-w3l-spa" style="margin-top: 200px;">
 			<!-- subscribe -->	
-		<div style="width:800px;padding-right: 0px;padding-left: 0px;margin-top:-100px;margin-left: 10em;margin-right: 0; margin-bottom: 2em;font-size: 20px;float: left;">
-			<div class="w3-agileits-subscribe-form">
-				<form action="Login" method="post">
-					<% flag=1; %>
-					<input type="text" name="hobby" placeholder="搜索内容" name="search" required="" style="width:500px;height:50px">
-					<button class="btn1"><font style="font-family:'黑体';font-size: 22px;padding:10px;">搜      索</font></button>
-				</form>
-			</div>		
-		</div>
+			<div style="width:800px;padding-right: 0px;padding-left: 0px;margin-top:-100px;margin-left: 10em;margin-right: 0; margin-bottom: 2em;font-size: 20px;float: left;">
+				<div class="w3-agileits-subscribe-form">
+					<form action="Login" method="post">
+						<% flag=1; %>
+						<input type="text" name="hobby" placeholder="搜索内容" name="search" required="" style="width:500px;height:50px">
+						<button class="btn1"><font style="font-family:'黑体';font-size: 22px;padding:10px;">搜      索</font></button>
+					</form>
+				</div>		
+			</div>
 	<br /><br /><br /><br /><hr />
 <!-- //subscribe -->
 			
@@ -162,8 +163,7 @@ background: none;
 					for(int i=0;i<questions.size();i++)
 					{
 						question= (MyQuestion) questions.get(i);
-			%>
-			
+			%>			
 				<label class="wel"></label>
 				<h2 class="w3ls_head"><%= question.getQtitle() %> </h2>
 				<p><%= question.getQco() %></p> 
@@ -190,9 +190,9 @@ background: none;
 						<a href="#" data-toggle="modal" data-target="<%=s%>">查看详情</a>													
 					</div>
 				</div>
-				<%} %>
-			</div>	
-		</div>		
+			<%} %>
+		</div>	
+	</div>		
 </div>
 
 <!-- //welcome -->

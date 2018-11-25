@@ -24,7 +24,6 @@ public class DBUtils {
 			url=properties.getProperty("jdbc.url");
 			username=properties.getProperty("jdbc.username");
 			password=properties.getProperty("jdbc.password");
-			//System.out.println(url+" "+username+" "+password+"****");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}		

@@ -4,6 +4,7 @@
 	<head>
 		<!-- Meta tags -->
 		<title>登录The Wise</title>
+		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 		<meta name="keywords" content="The Wise" />
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -54,7 +55,7 @@
 			</div>
 			<br>
 			<div class="copyright">
-				<p>© 2018 The Wise | Design by Wiselzy & OrlaWang</p>
+				<p>© 2018 The Wise | 浙ICP备17060288号</p>
 			</div>
 		</div>
 

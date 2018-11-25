@@ -1,5 +1,7 @@
 create database lzy_blog;
 
+select * from User order by uid limit 0,3
+
 drop table User;
 drop table MyQuestion;
 drop table MyResponse;
@@ -51,26 +53,27 @@ create table Messages(
 	mtime timestamp
 )default charset=utf8;
 
-truncate table User;
-truncate table MyQuestion;
-truncate table MyResponse;
-truncate table MyCollection;
-truncate table Messages;
-
 select * from User;
 select * from MyQuestion;
 select * from MyResponse;
 select * from MyCollection;
 select * from Messages;
 
-update User set secondname='管理员' where uid=1;
-
-insert into User(username,secondname,password,tximg) value ('admin','管理员','admin','tx0.png');
+insert into User(username,password,secondname,age,sex,email,hobby,motto,tximg) value ('admin','admin','管理员','18','女','1084@qq.com','admin','iam admin','tx0.png');
 insert into User(username,password,secondname,age,sex,email,hobby,motto,tximg) value ('syy','syy','syy','18','女','1084@qq.com','game','i love game','tx2.png');
 insert into User(username,password,secondname,age,sex,email,hobby,motto,tximg) value ('zxy','zxy666','Xing阳','30','男','6965@qq.com','game','No game No gain!','tx5.png');
 insert into User(username,password,secondname,age,sex,email,hobby,motto,tximg) value ('wsk','19970126wsk','Shao昆','25','男','2916@qq.com','study','study is my life','tx4.png');
 insert into User(username,password,secondname,age,sex,email,hobby,motto,tximg) value ('wyp','wyp2333','WangYP','38','女','1178@qq.com','study','i love study','tx1.png');
 insert into User(username,password,secondname,age,sex,email,hobby,motto,tximg) value ('lzy','wiselzy','可爱的梁紫怡','19','女','1084@qq.com','study','day day up','tx3.png');
+
+insert into User(username,password,secondname,age,sex,email,hobby,motto,tximg) value ('syy2','syy2','syy2','18','女','1084@qq.com','game','i love game','tx2.png');
+insert into User(username,password,secondname,age,sex,email,hobby,motto,tximg) value ('zxy2','zxy6662','Xing阳2','30','男','6965@qq.com','game','No game No gain!','tx5.png');
+insert into User(username,password,secondname,age,sex,email,hobby,motto,tximg) value ('wsk2','19970126wsk2','Shao昆2','25','男','2916@qq.com','study','study is my life','tx4.png');
+insert into User(username,password,secondname,age,sex,email,hobby,motto,tximg) value ('wyp2','wyp23332','WangYP2','38','女','1178@qq.com','study','i love study','tx1.png');
+insert into User(username,password,secondname,age,sex,email,hobby,motto,tximg) value ('lzy2','wiselzy2','可爱的梁紫怡2','19','女','1084@qq.com','study','day day up','tx3.png');
+insert into User(username,password,secondname,age,sex,email,hobby,motto,tximg) value ('wsk3','19970126wsk2','Shao昆3','25','男','2916@qq.com','study','study is my life','tx4.png');
+insert into User(username,password,secondname,age,sex,email,hobby,motto,tximg) value ('wyp3','wyp23332','WangYP3','38','女','1178@qq.com','study','i love study','tx1.png');
+insert into User(username,password,secondname,age,sex,email,hobby,motto,tximg) value ('lzy3','wiselzy2','可爱的梁紫怡3','19','女','1084@qq.com','study','day day up','tx3.png');
 
 insert into MyQuestion(uid,qtitle,qco) value('1','英雄联盟这款游戏到底还能火多久？','近些时间来，随着“吃鸡”、“彩虹六号”等游戏的出现，人们对英雄联盟的兴趣度有所降低，试问在座的到底这款游戏还能火多久？');
 insert into MyQuestion(uid,qtitle,qco) value('1','游戏对你生活产生了什么影响呢？','现代科技飞速发展，游戏的制作也越来越高端，玩的人也越来越多或多或少都会对我们的生活有影响，你的生活被游戏影响了嘛？');

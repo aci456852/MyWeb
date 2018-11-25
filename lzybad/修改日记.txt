@@ -18,3 +18,10 @@ int qid=Integer.parseInt(request.getSession().getAttribute("qid").toString());
 DAY2
 1.有循环的地方还是用老方法传参
 2.收藏改为收藏问题题目和回答内容（原为提问和描述）
+3.管理员-所有问题-显示有问题，已更改
+4.Servlet合并，提问、回答、留言显示和删除均已合并。
+
+DAY3
+1.备案号放在了登录、注册页面
+2.增加网页小图标<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+3.管理员-管理用户界面-分页成功。分页查询语句：select * from User order by uid limit 0,3 （0为第0页，3位每页条数）
