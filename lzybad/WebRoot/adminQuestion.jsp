@@ -138,7 +138,7 @@ background: none;
 								<!--提交按钮-->
 								<div class="contact-agileinfo" style="margin-left:90px;margin-top: 0px;">
 							     <div class="col-md-3 contact-right"> 						
-									<input type="submit" value="删    除" > 									
+									<input type="submit" value="删    除" onclick="javascript:if(confirm('确定要删除此信息吗？')){alert('删除成功！');return true;}return false;" > 									
 							    </div>		
 						        </div>
 							</form>

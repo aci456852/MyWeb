@@ -64,6 +64,20 @@
     <servlet-name>AdminUsersServlet</servlet-name>
     <servlet-class>Controller.AdminUsersServlet</servlet-class>
   </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>Loginque2</servlet-name>
+    <servlet-class>Controller.Loginque2</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>Loginque3</servlet-name>
+    <servlet-class>Controller.Loginque3</servlet-class>
+  </servlet>
+
+
 
 
   <servlet-mapping>
@@ -105,6 +119,14 @@
   <servlet-mapping>
     <servlet-name>AdminUsersServlet</servlet-name>
     <url-pattern>*.doAdminUsers</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Loginque2</servlet-name>
+    <url-pattern>/Loginque2</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Loginque3</servlet-name>
+    <url-pattern>/Loginque3</url-pattern>
   </servlet-mapping>
   <welcome-file-list>
     <welcome-file>/Login</welcome-file>

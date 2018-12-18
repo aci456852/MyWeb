@@ -27,6 +27,7 @@
 			document.write('<style>body{background:url(' + bodyBgs[randomBgIndex] + ') no-repeat;background-size:cover}</style>');
 			//]]>
 		</script>
+		
 	</head>
 
 	<body>
@@ -47,7 +48,7 @@
 						<label><font style="font-size: 1.5em">用户名</font></label>
 						<input type="text" name="username" placeholder="用户名" required/>
 						<label><font style="font-size: 1.5em">密码</font></label>
-						<input type="password" name="password" placeholder="密码" required />
+						<input  type="password" name="password" placeholder="密码" required />
 						<a href="Register" class="pass">新用户注册</a>
 						<input type="submit" value="登录" />
 					</form>
@@ -58,6 +59,8 @@
 				<p>© 2018 The Wise | 浙ICP备17060288号</p>
 			</div>
 		</div>
+		
+
 
 	</body>
 

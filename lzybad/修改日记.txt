@@ -9,9 +9,7 @@ DAY1
 int qid=Integer.parseInt(request.getSession().getAttribute("qid").toString());
 
 
-访问主页面时直接跳到Login
-删除问题时应跳个提示框
-设置防止用户重复提交 https://www.cnblogs.com/xdp-gacl/p/3859416.html
+设置防止用户重复提交 https://www.cnblogs.com/xdp-gacl/p/3859416.html  --直接跳转 不存在这个问题
 
 *删除提问，增加收藏无法传参，循环会覆盖
 
@@ -25,3 +23,9 @@ DAY3
 1.备案号放在了登录、注册页面
 2.增加网页小图标<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 3.管理员-管理用户界面-分页成功。分页查询语句：select * from User order by uid limit 0,3 （0为第0页，3位每页条数）
+
+DAY4
+1.所有删除时都有提示框
+2.注册时，限制了密码（密码至少包含大写字母，小写字母，数字，且不少于8位），年龄（仅数字），性别（radio选择男/女）。
+3.注册成功提示框，确定之后再跳转到主页面
+4.主页增加按时间/热度排序（默认时间排序）：从回答表中拿到问题被回答的个数，Hashmap+list，sort排序后再在问题表中得到。

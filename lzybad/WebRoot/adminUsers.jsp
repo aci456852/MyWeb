@@ -142,7 +142,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<td><%=Secondname %></td>	
 							<td><%=Age %></td>
 							<td><%=Sex %></td>
-							<td><a href="delete.doAdminUsers?uid=<%=Uid %>" style="color: #D58512;">删除</a></td>	
+							<td><a href="delete.doAdminUsers?uid=<%=Uid %>" style="color: #D58512;" onclick="javascript:if(confirm('确定要删除此信息吗？')){alert('删除成功！');return true;}return false;">删除</a></td>	
 						</tr>
 						<%
 	                    	}

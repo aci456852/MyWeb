@@ -65,8 +65,9 @@ font-size:20px;
 color: #EEAD31;
 background: none;
 }
-
-
+button：focus{
+outline:0;
+}
 </style>
 	
 <body>
@@ -129,7 +130,6 @@ background: none;
 <%! int myuid;
 	int myqid[]=new int[1005]; 
 	int o=0;
-	int flag=0;
 %>
  <div class="welcome">	
 	<div class="container">
@@ -137,35 +137,59 @@ background: none;
 			<!-- subscribe -->	
 			<div style="width:800px;padding-right: 0px;padding-left: 0px;margin-top:-100px;margin-left: 10em;margin-right: 0; margin-bottom: 2em;font-size: 20px;float: left;">
 				<div class="w3-agileits-subscribe-form">
-					<form action="Login" method="post">
-						<% flag=1; %>
+					<form action="Loginque2" method="post">					
 						<input type="text" name="hobby" placeholder="搜索内容" name="search" required="" style="width:500px;height:50px">
-						<button class="btn1"><font style="font-family:'黑体';font-size: 22px;padding:10px;">搜      索</font></button>
+						<button class="btn1" >
+							<font style="font-family:'黑体';font-size: 22px;padding:10px;">搜      索</font>
+						</button>							
 					</form>
+					<form action="Login" method="post">
+						<div style="margin-left:-800px;margin-top:-85px;">	
+							<button style="outline:0; border:none;background-color:white;">
+							<% %>
+							<i class="hi-icon fa-clock-o"> </i>
+							<br />
+							<span style="color:orange;"><b>时间排序</b></span>
+							</button>
+												
+						</div>	
+					</form>
+					<form action="Loginque3" method="post">
+						<div style="margin-left:-1000px;margin-top:-120px;">	
+							<button style="outline:0; border:none;background-color:white;" >
+							<% %>
+							<i class="hi-icon fa-users"> </i>
+							<br />
+							<span style="color:orange;"><b>热度排序</b></span>
+							</button>		
+										
+						</div>	
+					</form>
+					
 				</div>		
 			</div>
 	<br /><br /><br /><br /><hr />
-<!-- //subscribe -->
+<!-- //subscribe -->			
+		<%
+			List<MyQuestion> questions;
+			//--时间/搜索/热度排序
+			int flag=Integer.valueOf(request.getAttribute("flag").toString());
+			if(flag==1)
+			questions=(List)request.getAttribute("questions1");
+			else if(flag==2)
+			questions=(List)request.getAttribute("questions2");
+			else
+			questions=(List)request.getAttribute("questions3");
 			
-			<%
-					List<MyQuestion> questions;
-					if(flag==0){
-						questions=(List)request.getAttribute("questions");
-					}
-					else
-					{
-						questions=(List)request.getAttribute("questions2");
-						flag=0;
-					}
-					//System.out.println(questions.size());
-					MyQuestion question=new MyQuestion();
-					o=0;
-					for(int i=0;i<questions.size();i++)
-					{
-						question= (MyQuestion) questions.get(i);
-			%>			
+			MyQuestion question=new MyQuestion();
+			o=0;
+			for(int i=questions.size()-1;i>=0;i--)
+			{
+				question= (MyQuestion) questions.get(i);
+		%>			
 				<label class="wel"></label>
 				<h2 class="w3ls_head"><%= question.getQtitle() %> </h2>
+				<p><%= question.getQtime() %></p> 
 				<p><%= question.getQco() %></p> 
 				<div class="agileits_w3layouts_more">		
 					<form action="add.doResponse?qid=<%= question.getQid()%>" method="post">  					
@@ -190,7 +214,9 @@ background: none;
 						<a href="#" data-toggle="modal" data-target="<%=s%>">查看详情</a>													
 					</div>
 				</div>
-			<%} %>
+		<%
+			} 
+		%>
 		</div>	
 	</div>		
 </div>
@@ -252,7 +278,6 @@ background: none;
 <%} %>
 <!-- //bootstrap-pop-up -->
 <!-- flexSlider -->
-
 	<script defer src="js/jquery.flexslider.js"></script>
 	<script type="text/javascript">
 		$(window).load(function(){
@@ -264,6 +289,7 @@ background: none;
 		  });
 		});
   </script>
+
 <!-- //flexSlider -->
 <!-- for bootstrap working -->
 	<script src="js/bootstrap.js"></script>

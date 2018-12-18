@@ -118,7 +118,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</a> 
 					<div class="icon-box" style=" float: left; margin-left: 340px;">
 						<!-- <%session.setAttribute("cid",cid);%> -->
-						<a class="agile-icon" href="delete.doCollection?cid=<%=cid %>"><i class="fa fa-times"></i></a>
+						<a class="agile-icon" href="delete.doCollection?cid=<%=cid %>" onclick="javascript:if(confirm('确定要删除此信息吗？')){alert('删除成功！');return true;}return false;"><i class="fa fa-times"></i></a>
 					</div>						
 				</div> 
 				<%

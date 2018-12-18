@@ -1,6 +1,7 @@
 package Controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -13,19 +14,19 @@ import Bean.User;
 import Dao.QuestionDao;
 import Dao.UserDao;
 
-public class LoginServlet extends HttpServlet {
+public class Loginque2 extends HttpServlet {
 
-	public LoginServlet() {
+	public Loginque2() {
 		super();
 	}
 
 	public void destroy() {
-		super.destroy(); 
+		super.destroy();
 	}
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.setAttribute("flag", 1);
+		request.setAttribute("flag", 2);
 		String hobby="";
 		if(request.getSession().getAttribute("hobby")==null)
 			hobby="";
@@ -68,10 +69,13 @@ public class LoginServlet extends HttpServlet {
 			request.setAttribute("questions3", questions3);//»»∂»
 			request.getRequestDispatcher("/main.jsp").forward(request, response);
 		}
+		
 	}
 
+	
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
 		request.setCharacterEncoding("utf-8");
 		String username=request.getParameter("username");
 		String password=request.getParameter("password");
@@ -97,6 +101,7 @@ public class LoginServlet extends HttpServlet {
 	}
 
 	public void init() throws ServletException {
+		
 	}
 
 }

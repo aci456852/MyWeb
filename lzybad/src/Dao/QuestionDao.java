@@ -6,8 +6,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import Bean.MyQuestion;
 import Utils.DBUtils;
@@ -34,6 +38,48 @@ public class QuestionDao {
 		}finally{
 			DBUtils.close(conn);
 		}				
+		return questions;
+	}
+	public List<MyQuestion> getFireQues(int uid)
+	 {//∞¥’’»»∂»≈≈–Ú
+		int o=0;
+		HashMap<Integer,Integer> hm=new HashMap<Integer,Integer>(); 
+		List<MyQuestion> questions=new ArrayList<MyQuestion>();
+		Connection conn=DBUtils.getConnection();
+		try {
+			PreparedStatement state=conn.prepareStatement("select qid from MyResponse");
+			ResultSet r=state.executeQuery();
+			while(r.next()){
+				int textqid=r.getInt("qid");
+				hm.put(textqid, hm.containsKey(textqid) ? hm.get(textqid) + 1 : 1);
+			}
+			List<Map.Entry<Integer, Integer>> infoIds = new ArrayList<Map.Entry<Integer, Integer>>(hm.entrySet());  
+			Collections.sort(infoIds, new Comparator<Map.Entry<Integer, Integer>>() {  
+		            public int compare(Map.Entry<Integer, Integer> o1,Map.Entry<Integer, Integer> o2) {  
+		                return (o1.getValue()).toString().compareTo(o2.getValue().toString());  
+		            }  
+		        });  
+			for(Map.Entry<Integer,Integer> en: infoIds)
+			{
+				int key = en.getKey();
+				PreparedStatement statement=conn.prepareStatement("select * from MyQuestion where qid=?;");
+				statement.setInt(1, key);
+				ResultSet rs=statement.executeQuery();
+				while(rs.next()){
+					MyQuestion question=new MyQuestion();
+					question.setQid(rs.getInt("qid"));
+					question.setUid(rs.getInt("uid"));
+					question.setQtitle(rs.getString("qtitle"));
+					question.setQco(rs.getString("qco"));
+					question.setQtime(rs.getTimestamp("qtime"));
+					questions.add(question);
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			DBUtils.close(conn);
+		}	
 		return questions;
 	}
 	public List<MyQuestion> getAllOfMy(int uid)
