@@ -104,7 +104,7 @@ background: none;
 		</nav>
 	</div>
 </div>
-<div style="margin-top:115px;float: left; background-color: #2E6DA4;width: 350px;text-align: center; position: fixed;">
+<div style="margin-top:100px;float: left; background-color: #2E6DA4;width: 350px;text-align: center; position: fixed;">
 <nav>      
 			<ul style="list-style: none;" class="nav" >
 				<img src="images/<%= user.getTximg() %>" style="width: 130px;" />

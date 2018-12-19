@@ -28,24 +28,23 @@
 					String error= (String)request.getAttribute("error");
 	            	if(error!=null){
 	            %>
-	            <p style="color:orange" align="center"><%=error %></p>
-	            <%} %>
-					
+	            	<p style="color:orange" align="center"><%=error %></p>
+	            <%} %>			
 					<label><font style="font-size: 1.5em">用户名</font></label>
 					<input type="text" name="username" placeholder="用户名" required/>
 					<label><font style="font-size: 1.5em">昵称</font></label>
-					<input type="text" name="secondname" placeholder="昵称" required/>
+					<input type="text" name="secondname" placeholder="昵称"required/>
 					<label><font style="font-size: 1.5em">密码</font></label>
-					<input id="password" type="password" name="password" onblur="test();" placeholder="密码" required />
+					<input type="password"  onkeyup="value=value.replace(/[^\w\/]/ig,'')"  maxlength="16"  name="password"  placeholder="密码" required />
 					<label><font style="font-size: 1.5em">确认密码</font></label>
-					<input type="password"" name="repassword" placeholder="确认密码 " required />					
+					<input type="password" name="repassword" placeholder="确认密码 " required />					
 					<label><font style="font-size: 1.5em">年龄</font></label>
-					<input type="text" oninput="value=value.replace(/[^\d]/g,'')" name="age"required/>
+					<input type="text" oninput="value=value.replace(/[^\d]/g,'')" name="age" required/>
 					<label><font style="font-size: 1.5em">性别</font></label>					
 					<input type="radio" name="sex" style="float:left;" value="男"/><span style="color:white;font-size:15px;margin-right:100px;float:left;margin-top:-3px;">男</span>
 					<input type="radio" checked="checked" name="sex" style="float:left;" value="女"/><span style="color:white;font-size:15px;float:left;margin-top:-3px;">女</span>
 					<br/>
-					<input type="submit" onclick="alert('注册成功')" value="确认注册" />
+					<input type="submit" onclick="alert("注册成功");"value="确认注册" />
 				</form>
 			</div>
 		</div>
@@ -56,19 +55,6 @@
 	</div>
 	
 
-<script>
-    function test(){
-        var text= document.getElementById("password").value;
-        var re =/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^]{8,16}$/;
-        var result=  re.test(text);
-        if(!result)
-        {       
-            alert("密码至少包含大写字母，小写字母，数字，且不少于8位");
-        }
-    }
- 
-  
-</script>
 
 </body>
 </html>

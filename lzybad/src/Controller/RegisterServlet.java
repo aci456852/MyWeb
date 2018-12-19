@@ -13,6 +13,7 @@ import Dao.UserDao;
 
 public class RegisterServlet extends HttpServlet {
 
+	
 	public RegisterServlet() {
 		super();
 	}
@@ -23,16 +24,13 @@ public class RegisterServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		//request.getRequestDispatcher("/register.jsp").forward(request, response);
-		RequestDispatcher rd = request.getRequestDispatcher("/register.jsp");  
-		try {  
-		    rd.forward(request, response);  
-		         return;  
-		}catch(Exception e){}  
+		
+		request.getRequestDispatcher("/register.jsp").forward(request, response);	
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		int flag=1;
 		request.setCharacterEncoding("utf-8");
 		String username=request.getParameter("username");
 		String password=request.getParameter("password");
@@ -44,17 +42,28 @@ public class RegisterServlet extends HttpServlet {
 		if(!password.trim().equals(repassword.trim()))//去掉空格
 		{
 			request.setAttribute("error", "密码和确认密码不符！");
-			doGet(request, response);
+			flag=0;
+		}
+		if(password.trim().length()<6)//长度限制
+		{
+			request.setAttribute("error", "密码长度过短！");
+			flag=0;
 		}
 		UserDao userdao=new UserDao();
 		boolean valid=userdao.exist(username);
+		System.out.println(username+" *** "+valid);
 		if(valid==true){
+			System.out.println(username+" 222 "+valid);
 			request.setAttribute("error", "用户名已经存在，请重新输入！");
-			doGet(request, response);
+			flag=0;
 		}
-		else{
-		userdao.isRegister(username, password,secondname,age,sex);
-		response.sendRedirect(request.getContextPath()+"/Login");
+		if(flag==0)
+		doGet(request, response);
+		else
+		{
+			userdao.isRegister(username, password,secondname,age,sex);
+			request.getSession().setAttribute("success", "注册成功！");
+			response.sendRedirect(request.getContextPath()+"/Login");	
 		}
 		
 	}

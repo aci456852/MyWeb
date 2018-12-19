@@ -45,6 +45,12 @@
 	            <%} %>
 				<div class="w3ls-form">
 					<form action="Login" method="post">
+					<% 
+						String success= (String)request.getAttribute("success");
+		            	if(success!=null){
+		            %>
+		            	<p style="color:orange" align="center"><%=success %></p>
+		            <%} %>		
 						<label><font style="font-size: 1.5em">用户名</font></label>
 						<input type="text" name="username" placeholder="用户名" required/>
 						<label><font style="font-size: 1.5em">密码</font></label>

@@ -25,6 +25,10 @@ public class LoginServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		//注册成功
+		if(request.getSession().getAttribute("success")=="注册成功！")
+			request.setAttribute("success", "注册成功！");
+		
 		request.setAttribute("flag", 1);
 		String hobby="";
 		if(request.getSession().getAttribute("hobby")==null)
