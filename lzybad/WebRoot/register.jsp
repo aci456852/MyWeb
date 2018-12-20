@@ -35,11 +35,11 @@
 					<label><font style="font-size: 1.5em">昵称</font></label>
 					<input type="text" name="secondname" placeholder="昵称"required/>
 					<label><font style="font-size: 1.5em">密码</font></label>
-					<input type="password"  onkeyup="value=value.replace(/[^\w\/]/ig,'')"  maxlength="16"  name="password"  placeholder="密码" required />
+					<input type="password"  onkeyup="value=value.replace(/[^\w\/]/ig,'')"  maxlength="16"  name="password"  placeholder="请输入6-16数字、字母或 /" required />
 					<label><font style="font-size: 1.5em">确认密码</font></label>
 					<input type="password" name="repassword" placeholder="确认密码 " required />					
 					<label><font style="font-size: 1.5em">年龄</font></label>
-					<input type="text" oninput="value=value.replace(/[^\d]/g,'')" name="age" required/>
+					<input type="text" oninput="value=value.replace(/[^\d]/g,'')" name="age" placeholder="请输入数字" required/>
 					<label><font style="font-size: 1.5em">性别</font></label>					
 					<input type="radio" name="sex" style="float:left;" value="男"/><span style="color:white;font-size:15px;margin-right:100px;float:left;margin-top:-3px;">男</span>
 					<input type="radio" checked="checked" name="sex" style="float:left;" value="女"/><span style="color:white;font-size:15px;float:left;margin-top:-3px;">女</span>

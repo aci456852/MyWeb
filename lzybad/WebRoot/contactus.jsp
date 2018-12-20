@@ -90,10 +90,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 <!-- testimonials -->
 	<div class="testimonials" >
-	<br/><br/><br/><br/>
+	<br/><br/><br/>
 		<div class="container" style="margin-left: 550px;">
+		<div style="width:500px;margin-left:50px;margin-top:20px;font-size:20px;line-height: 2;">TheWise创立于2016年12月23日
+		<br />创办者梁紫怡旨在创立一个大学生学习交流的平台。
+		<br />在二周年到来之际，网站功能日渐完善。
+		<br />欢迎大家关注公众号TheWise
+		<br />官方粉丝群：262821078。
+		<br />如有建议可以给我们留言哦↓</div>
 		<!-- subscribe -->	
-		<div style="width:800px;padding-right: 0px;padding-left: 0px;margin-top:-100px;margin-left: 9em;margin-right: 0; margin-bottom: 2em;font-size: 20px;float: left;">
+		<div style="width:800px;padding-right: 0px;padding-left: 0px;margin-top:-30px;margin-left: -5em;margin-right: 0; margin-bottom: 2em;font-size: 20px;float: left;">
 			<div class="w3-agileits-subscribe-form">
 				<form action="add.doMessages" method="post">
 					<input type="text" name="mco" placeholder="留言内容" name="search" required="" style="border: 2px solid rgba(255, 185, 15, 0.5);font-size: 1.45em;padding: .25em .5em .3125em;color: rgba(255, 185, 15, 0.5);background: transparent;-webkit-transition: all .100s;transition: all .100s;">		
@@ -101,10 +107,68 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</form>
 			</div>		
 		</div>
-	<br /><br /><br /><br /><hr />
+		<div style="float:left;margin-left:-1em;margin-top:-240px;">
+					<div style="color:orange;font-size:30px;margin-bottom:10px;margin-left:35px">最近提问</div>
+					<%
+						UserDao uop=new UserDao();
+						User op=new User();
+						QuestionDao qdao=new QuestionDao();
+						List<MyQuestion> questions1=qdao.getAll();
+						MyQuestion question=new MyQuestion();
+						List<MyQuestion> questions=qdao.getAll();
+						for(int i=questions.size()-1;i>=questions.size()-3;i--)
+						{
+							question= (MyQuestion) questions.get(i);
+							int tu=question.getUid();
+							op=uop.getOneOFAll(tu);
+					%>
+					<div style="margin-bottom:10px;">
+						<div class="w3l_services_footer_top_right_main_l1">	
+							<div class="w3ls_service_icon">
+								<img src="images/<%=op.getTximg() %>" style="width: 50px;margin-top:8px;"/>
+							</div>
+						</div>
+						<div style="margin-left:120px;margin-top:30px;">
+							<div style="font-size:20px;margin-bottom:10px;width:200px"><%=op.getSecondname() %></div>
+							<p><%=1900+question.getQtime().getYear() %>.<%=1+question.getQtime().getMonth() %>.<%=question.getQtime().getDate() %></p>
+						</div>
+					</div>	
+					<%} %>	
+					<div style="margin-top:50px;margin-left:20px">历史提问人数：<%=questions.size() %></div>	
+		</div>
+		<div style="float:left;margin-left:60em;margin-top:-419px;">
+					<div style="color:orange;font-size:30px;margin-bottom:10px;margin-left:35px">最近回答</div>
+					<%
+						ResponseDao rd=new ResponseDao();
+						List<MyResponse> responses=rd.getAll();
+						MyResponse r=new MyResponse();
+						for(int i=responses.size()-1;i>=responses.size()-3;i--)
+						{
+							r=(MyResponse) responses.get(i);
+							int tu2=r.getUid();
+							op=uop.getOneOFAll(tu2);
+					%>
+					<div style="margin-bottom:10px;">
+						<div class="w3l_services_footer_top_right_main_l1">	
+							<div class="w3ls_service_icon">
+								<img src="images/<%=op.getTximg() %>" style="width: 50px;margin-top:8px;"/>
+							</div>
+						</div>
+						<div style="margin-left:120px;margin-top:30px;">
+							<div style="font-size:20px;margin-bottom:10px;width:200px"><%=op.getSecondname() %></div>
+							<p><%=1900+question.getQtime().getYear() %>.<%=1+question.getQtime().getMonth() %>.<%=question.getQtime().getDate() %></p>
+						</div>
+					</div>
+					<%} %>	
+					<div style="margin-top:50px;margin-left:20px">历史提问人数：<%=responses.size() %></div>			
+		</div>
+
 <!-- offer-bottom -->
+
 	<div class="banner-bottom">
-		<div style="margin-left: 20em; padding-right: 0px;padding-left: 0px;margin-right: 0; float: left;">		
+<br/><br/><br/><br/><br/><hr />
+
+		<div style="margin-left: 25em; padding-right: 0px;padding-left: 0px;margin-right: 0; float: left;">		
 			<%
 				MessagesDao mdao=new MessagesDao();
 				List<Messages> messages=(List)mdao.getAll();
@@ -127,25 +191,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="w3l_services_footer_top_right_main_r">
 						<%=uu.getSecondname() %>
 						<p><%= m.getMco() %></p>
-					</div>
-					<div class="clearfix"> </div>
+					</div>				
 				</div>
 				<br /><br /><br /><br />
+						<div class="clearfix"> </div>
 			</div>
 			<%} %>
-		</div>
+			
+		</div>	
 	</div>
-	<div class="clearfix"> </div>
+
+
 <!-- //offer-bottom -->
-<label style="background: #eead31;
-    width: 200px;
-    height: 3px;
-    display: block;
-    margin: 0 auto 30px;
-    margin-top: 2.5em;
-    margin-left: 30em;">
-</label>
+
 <!-- //subscribe -->
+<div style="margin-top:500px">
 			<h3 class="w3ls_head">关于我们</h3>
 			<div class="testimonials-grids">
 				<div class="wmuSlider example1 animated wow slideInUp" data-wow-delay=".5s">
@@ -187,6 +247,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							$('.example1').wmuSlider();         
 						</script> 
 			</div>
+		</div>
 		</div>
 	</div>
 <!-- //testimonials -->
